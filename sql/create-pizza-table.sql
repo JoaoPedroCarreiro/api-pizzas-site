@@ -15,25 +15,31 @@ INSERT INTO pizzas (topping, price, ingredients, img) VALUES
         "Mozzarella",
         9.99,
         "Mozzarella",
-        "cheese.png"
+        "cheese.jpg"
     ),
     (
         "Pepperoni",
         11.99,
         "Pepperoni and Mozzarella",
-        "pepperoni.png"
+        "pepperoni.jpg"
     ),
     (
         "Chicken with Catupiry",
         14.99,
         "Mozzarella, Chicken and Catupiry",
-        "catupiry.png"
+        "catupiry.jpg"
     ),
     (
         "Portuguese",
         11.99,
         "Mozzarella, Ham, Eggs, Onions, Peas",
-        "portuguese.png"
+        "portuguese.jpg"
+    ),
+    (
+        "Chocolate",
+        10.99,
+        "Chocolate and Mozzarella",
+        "chocolate.jpg"
     )
 ;
 
