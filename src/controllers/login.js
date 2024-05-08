@@ -12,9 +12,9 @@ async function login(req, res) {
         if(!passwordsMatch) throw new Error("Incorrect Password")
         
         const token = JWTService.sign(id)
-        const cookie = `token=${token}; SameSite=None; Secure; Max-Age=${TimeUnits.yearToSec(10)}`
+        const cookie = `__token=${token}; SameSite=None; Secure; Max-Age=${TimeUnits.yearToSec(10)}`
         
-        res.status(200).setHeader("Set-Cookie", cookie).send("Success")
+        res.status(200).send(token)
     } catch (err) {
         if(err.message === "Internal Error") {
             res.status(500).send({

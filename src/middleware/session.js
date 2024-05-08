@@ -2,8 +2,8 @@ const JWTService = require("../services/jwt")
 
 function validate(req, res, next) {
     try {
-        if(!req.cookies.token) throw new Error("Empty token")
-        JWTService.verify(req.cookies.token)
+        if(!req.body.token) throw new Error("Empty token")
+        JWTService.verify(req.body.token)
     } catch (err) {
         res.status(401).send({
             message: "Invalid token",
@@ -18,8 +18,8 @@ function validate(req, res, next) {
 
 function isUserInSession(req, res, next) {
     try {
-        if(!req.cookies.token) throw new Error("Empty token")
-        if(Number(req.params.usr) !== JWTService.verify(req.cookies.token).id) throw new Error("Unauthorized token")
+        if(!req.body.token && !req.query.token) throw new Error("Empty token")
+        if(Number(req.params.usr) !== JWTService.verify(req.body.token ? req.body.token : req.query.token).id) throw new Error("Unauthorized token")
     } catch (err) {
         res.status(401).send({
             message: "You don't have permission to do this",
